@@ -1,9 +1,9 @@
-import { mhtcetDB } from "./schema.js";
+import { schemaDB } from "./schema.js";
 
 console.log("Task Execution Started")
 
 async function main() {
-    await mhtcetDB();  
+    await schemaDB();  
     console.log("Task Successfully Executed");
 }
 

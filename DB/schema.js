@@ -1,11 +1,11 @@
 import { pool } from "./connection.js";
 
-export const mhtcetDB = async () => {
+export const schemaDB = async () => {
 
-    console.log("Creating Table for Mhtcet")
+  console.log("Creating Table for Mhtcet")
 
-    await pool.query(
-        `CREATE TABLE IF NOT EXISTS mhtcet (
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS mhtcet (
       id SERIAL PRIMARY KEY,
       institute TEXT,
       academic_program_name TEXT,
@@ -17,12 +17,12 @@ export const mhtcetDB = async () => {
       category_key TEXT,
       closing_rank INT
     );`
-    )
+  )
 
-    console.log("Table created for mhtcet")
+  console.log("Table created for mhtcet")
 
-    await pool.query(
-        `
+  await pool.query(
+    `
       CREATE TABLE IF NOT EXISTS gujcet (
       id SERIAL PRIMARY KEY,
 
@@ -50,10 +50,31 @@ export const mhtcetDB = async () => {
       nirf_ranking INT,
       medical_stipend INT
     );`
-    )
+  )
 
-    await pool.query(
-        `CREATE TABLE IF NOT EXISTS kcet (
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS jee (
+  id SERIAL PRIMARY KEY,
+  college_id TEXT,
+  institute TEXT,
+  academic_program_name TEXT,
+  af_hierarchy FLOAT,
+  state TEXT,
+  seat_type TEXT,
+  gender TEXT,
+  quota TEXT,
+  closing_rank INT,
+  opening_rank INT,
+  college_type TEXT,
+  management_type TEXT,
+  expected_salary FLOAT,
+  salary_tier FLOAT,
+  exam TEXT
+);`
+  )
+
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS kcet (
   id SERIAL PRIMARY KEY,
   institute TEXT,
   course_type TEXT,
@@ -65,9 +86,26 @@ export const mhtcetDB = async () => {
   category_key TEXT,
   closing_rank INT
 );`
-    )
+  )
 
-    await pool.query(
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS neet (
+  id SERIAL PRIMARY KEY,
+  quota TEXT,
+  round INT,
+  is_pwd TEXT,
+  academic_program_name TEXT,
+  seat_type TEXT,
+  institute_code INT,
+  institute TEXT,
+  opening_rank INT,
+  closing_rank INT,
+  college_rank INT,
+  state TEXT
+);`
+  )
+
+  await pool.query(
     `CREATE TABLE IF NOT EXISTS neetug (
   id SERIAL PRIMARY KEY,
   institute TEXT,
@@ -78,10 +116,10 @@ export const mhtcetDB = async () => {
   category TEXT,
   closing_rank INT
 );`
-    )
+  )
 
-    await pool.query(
-        `CREATE TABLE IF NOT EXISTS scholarships (
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS scholarships (
   id SERIAL PRIMARY KEY,
   scholarship_name TEXT,
   no_of_awards INT,
@@ -109,10 +147,10 @@ export const mhtcetDB = async () => {
   prefilled_form_link TEXT,
   grade TEXT
 );`
-    )
+  )
 
-    await pool.query(
-        `CREATE TABLE IF NOT EXISTS tnea (
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS tnea (
   id SERIAL PRIMARY KEY,
   institute_id TEXT,
   institute TEXT,
@@ -122,10 +160,10 @@ export const mhtcetDB = async () => {
   category TEXT,
   cutoff_marks INT
 );`
-    )
+  )
 
-    await pool.query(
-        `CREATE TABLE IF NOT EXISTS tseapert (
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS tseapert (
   id SERIAL PRIMARY KEY,
   inst_code TEXT,
   institute_name TEXT,
@@ -143,7 +181,7 @@ export const mhtcetDB = async () => {
   tuition_fee INT,
   affiliated_to TEXT
 );`
-    )
+  )
 
-    return 
+  return
 }
