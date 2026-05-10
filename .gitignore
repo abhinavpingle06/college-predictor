@@ -11,6 +11,11 @@ lerna-debug.log*
 # csv
 *.csv
 
+# personal files
+cleaned_college_data.json
+output.xlsx
+venv
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
