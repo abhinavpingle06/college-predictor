@@ -47,7 +47,7 @@ export const insertCollegeData = async (data) => {
 
     //     const collegeRes = await pool.query(collegeQuery, collegeValues);
 
-    //     // const collegeId = collegeRes.rows[0].id;
+        // const collegeId = collegeRes.rows[0].college_name;
         // EXAMS SECTION
         const examQuery = `
       INSERT INTO exams (name)
