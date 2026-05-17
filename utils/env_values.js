@@ -1,7 +1,9 @@
 import dotenv from "dotenv"
 import path from "path";
+import { fileURLToPath } from "url";
 
-dotenv.config({path:path.resolve("../.env.local")});
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export const DB_URL = process.env.NEON_DB_URL
-// console.log(DB_URL)
+dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
+
+export const DB_URL = process.env.NEON_DB_URL;
